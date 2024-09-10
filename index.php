@@ -3,7 +3,7 @@
 include("connections.php");
 
 $fName = $mName = $lName = $address = $email = $section = $contact = $password = $cpassword= "";
-$fnameErr = $mnameErr = $lnameErr = $addressErr = $emailErr = $sectionErr = $contactErr = $passwordErr = $cpasswordErr="";
+$fnameErr = $mnameErr = $lnameErr = $addressErr = $emailErr = $sectionErr = $contactErr = $passwordErr = $cpasswordErr=  "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["fName"])) {
