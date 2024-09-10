@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2024 at 04:50 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Sep 10, 2024 at 09:51 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -53,7 +53,12 @@ INSERT INTO `mytbl` (`id`, `fName`, `mName`, `lName`, `section`, `address`, `ema
 (29, 'Maria', 'Narito', 'Daniela', 'INF-222', 'Sico, Lipa', 'dani@gmail.com', '09542687413', 'pass', '2'),
 (31, 'Crystal ', 'Clear ', 'Macasaet', 'INF-222', 'Mataas na kahoy', 'crystal@gmail.com', '09258456974', 'pass', '2'),
 (33, 'Reggie', 'Roxas', 'Rocafort', 'INF-222', 'Riles, Tambo', 'reggie@gmail.com', '09245364131', 'password', '2'),
-(34, 'admin', 'admin', 'admin', '', '', 'admin@gmail.com', '', 'admin', '1');
+(34, 'admin', 'admin', 'admin', '', '', 'admin@gmail.com', '', 'admin', '1'),
+(35, 'Hakeem', 'Malakim', 'Olajuwon', 'INF-222', 'Nigeria, Africa', 'hakeem@gmail.com', '09547517845', 'pass', '2'),
+(36, 'Cade', 'Blade', 'Cunningham', 'INF-222', 'Texas, USA', 'cade@gmail.com', '09754845475', 'pass', '2'),
+(37, 'Ash', 'Pikachu', 'Ketchum', 'INF-222', 'Townsville, Hojo Region', 'ash@gmail.com', '09451657894', 'pass', '2'),
+(38, 'Viktor', 'Magtanggol', 'Wembanyama', 'INF-222', 'Paris, France, Europe tabi ng jolibee', 'viktor@gmail.com', '0945475214552', 'pass', '2'),
+(39, 'Blair', 'Cyrus', 'Williams', 'INF-222', 'Los Angeles, California', 'blair@gmail.com', '09784561573', 'pass', '2');
 
 --
 -- Indexes for dumped tables
@@ -73,7 +78,7 @@ ALTER TABLE `mytbl`
 -- AUTO_INCREMENT for table `mytbl`
 --
 ALTER TABLE `mytbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
