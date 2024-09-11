@@ -1,0 +1,214 @@
+body {
+    display: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #e9ecef;
+}
+
+.search-container {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+/* Form Container and Data Display Styling */
+.form-container, .data-display {
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    text-align:left;
+}
+
+/* Input Fields Styling */
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #004643;
+}
+
+/* Home Button Styling */
+.home-btn, .back-button {
+    display: inline-block;
+    width: 93.2%;
+    
+    padding: 10px;
+    margin: -10px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.search-home-btn {
+    display: inline-block;
+    width: 90%;
+    max-width: 320px;
+    padding: 10px ;
+    margin: 10px 0;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.home-btn:hover, .back-button:hover {
+    background-color: #004643;
+}
+
+/* Error Message Styling */
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+/* Table Styling */
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 20px auto;
+    font-size: 14px;
+    text-align: left;
+}
+
+th, td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #abd1c6;
+}
+
+/* Button Styling */
+.btn {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 5px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #004643;
+}
+
+.btn.delete {
+    background-color: #ff4d4d;
+}
+
+.btn.delete:hover {
+    background-color: #ff1a1a;
+}
+
+/* Search Form Container Styling */
+.search-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+/* Input Fields Styling */
+input[type="text"] {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+/* Navbar styling */
+.navbar {
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    background-color: #45a049;
+}
+
+.navbar ul li a.active {
+    background-color: #333;
+}
+
+/* Page content */
+.content {
+    padding: 20px;
+    text-align: center;
+}
+
