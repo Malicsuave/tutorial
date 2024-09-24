@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["mName"])) {
         $mnameErr = "Middle name is required";
     } else {
-        $mName = $_POST["mName"];
+        $nName = $_POST["mName"];
     }
 
     if (empty($_POST["lName"])) {
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($_POST["contact"])) {
-        $contactErr = "Contact number is required";
+        $contacctErr = "Contact number is required";
     } else {
         $contact = $_POST["contact"];
     }
@@ -187,16 +187,102 @@ echo "</table>";
 
 <?php
 
-$Paul= "Paul";
-$Mica= "Mica";
-$Kaye= "Kaye";
+// $Paul= "Paul";
+// $Mica= "Mica";
+// $Kaye= "Kaye";
 
-$names = array("$Kaye","$Paul","$Mica");
+// $names = array("$Kaye","$Paul","$Mica");
 
-    foreach ($names as $display_names) {
+//     foreach ($names as $display_names) {
         
-        echo $display_names . "<br>";
+//         echo $display_names . "<br>";
+// }
+?>
+
+
+<?php 
+if(isset($_POST["btn_1"])) {
+    echo "Arriba";
+} elseif (isset($_POST["btn_2"])) {
+    echo "BSIT";
 }
 ?>
 
+<form method="POST">
+    <input type="submit" name="btn_1" value="1st Button" class="styled-button">
+    <input type="submit" name="btn_2" value="2nd Button" class="styled-button">
+</form>
+
+
+<?php  
+
+
+
+?>
+
+
+<form method="POST">
+
+    <center>
+
+        <table border="0" width="50%">
+
+            <tr><td> <input type="text" name="first_name"  placeholder="First Name" value="">   </td></tr>
+
+            <tr><td> <input type="text" name="middle_name" placeholder="Middle Name" value="">   </td></tr>
+
+            <tr><td> <input type="text" name="last_name"   placeholder="Last Name" value="">   </td></tr>
+
+            <tr>
+                <td>
+                    <select>
+
+                        <option name="gender" value="">Select Gender </option>
+
+                        <option name="gender" value="Male">Male </option>
+                        <option name="gender" value="Female">Female </option>
+
+                    </select>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    <select name="preffix">
+
+                        <option name="preffix" value="">Network Provided (Globe, Smart, Sun, TNT, TM etc.)</option>
+
+                        <option name="preffix" id="preffix" value="0813"> 0813 </option>
+                        <option name="preffix" id="preffix" value="0817"> 0817 </option>
+                        <option name="preffix" id="preffix" value="0905"> 0905 </option>
+                        <option name="preffix" id="preffix" value="0906"> 0906 </option>
+                        <option name="preffix" id="preffix" value="0907"> 0907 </option>
+
+                    </select>
+
+                        <input type="text" name="seven_digit" value="" maxlength="7" placeholder="Other Seven Digit">
+                </td>
+            </tr>
+        
+            <tr>
+                <td>
+                    <hr>
+                </td>
+            </tr> 
+            
+            <tr>
+                <td>
+                    <input type="submit" name="btnRegister" value="Register">
+                </td>
+            </tr> 
+
+        </table>
+
+
+
+    </center>
+
+
+</form>
 
