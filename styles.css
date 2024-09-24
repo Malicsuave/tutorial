@@ -1,24 +1,15 @@
 body {
-    display:flex;    
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height:max-content;
+    height: max-content;
     margin: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #e9ecef;
 }
 
-.search-container {
-    text-align: center;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
-}
-/* Form Container and Data Display Styling */
-.form-container, .data-display {
+.search-container, .form-container, .data-display {
     width: 300px;
     margin: 20px auto;
     padding: 20px;
@@ -26,56 +17,23 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
-    text-align:left;
+    text-align: left;
 }
 
-/* Input Fields Styling */
-input[type="text"], input[type="password"] {
+/* Input Fields */
+input[type="text"], input[type="password"], select {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
-input[type="submit"] {
+/* Submit Button */
+input[type="submit"], .styled-button, .home-btn, .back-button {
     width: 100%;
     padding: 10px;
-    margin: 10px 0;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-input[type="submit"]:hover {
-    background-color: #004643;
-}
-
-/* Home Button Styling */
-.home-btn, .back-button {
-    display: inline-block;
-    width: 93.2%;
-    
-    padding: 10px;
-    margin: -10px 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.search-home-btn {
-    display: inline-block;
-    width: 90%;
-    max-width: 320px;
-    padding: 10px ;
     margin: 10px 0;
     background-color: #4CAF50;
     color: white;
@@ -87,7 +45,7 @@ input[type="submit"]:hover {
     transition: background-color 0.3s ease;
 }
 
-.home-btn:hover, .back-button:hover {
+input[type="submit"]:hover, .home-btn:hover, .back-button:hover, .styled-button:hover {
     background-color: #004643;
 }
 
@@ -124,22 +82,7 @@ tr:hover {
     background-color: #abd1c6;
 }
 
-/* Button Styling */
-.btn {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 0 5px;
-    background-color: #4CAF50;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #004643;
-}
-
+/* Delete Button */
 .btn.delete {
     background-color: #ff4d4d;
 }
@@ -148,33 +91,12 @@ tr:hover {
     background-color: #ff1a1a;
 }
 
-/* Search Form Container Styling */
-.search-container {
-    width: 100%;
-    max-width: 500px;
-    padding: 20px;
-    margin: 20px auto;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
-}
-
-/* Input Fields Styling */
-input[type="text"] {
-    width: 100%;
-    max-width: 300px;
-    padding: 10px;
-    margin: 10px 0;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-}
-/* Navbar styling */
+/* Navbar Styling */
 .navbar {
     background-color: #4CAF50;
     padding: 10px 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width:100%;
+    width: 100%;
 }
 
 .navbar ul {
@@ -207,15 +129,39 @@ input[type="text"] {
     background-color: #333;
 }
 
-/* Page content */
+/* Page Content */
 .content {
     padding: 20px;
     text-align: center;
 }
 
-.styled-button {
-    padding: 10px 20px; /* Adds padding to make the button look nicer */
-    font-size: 16px; /* Adjusts the font size */
-    margin: 10px; /* Adds space between the buttons */
-    cursor: pointer; /* Changes the cursor to indicate clickability */
+/* Button Base Style */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+/* Update Button Style */
+.btn.update {
+    background-color: #4CAF50; /* Green for update */
+}
+
+.btn.update:hover {
+    background-color: #45a049;
+}
+
+/* Delete Button Style */
+.btn.delete {
+    background-color: #ff4d4d; /* Red for delete */
+}
+
+.btn.delete:hover {
+    background-color: #ff1a1a;
 }

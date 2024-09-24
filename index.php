@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["mName"])) {
         $mnameErr = "Middle name is required";
     } else {
-        $nName = $_POST["mName"];
+        $mName = $_POST["mName"];
     }
 
     if (empty($_POST["lName"])) {
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($_POST["contact"])) {
-        $contacctErr = "Contact number is required";
+        $contactErr = "Contact number is required";
     } else {
         $contact = $_POST["contact"];
     }
@@ -175,7 +175,7 @@ while ($row = mysqli_fetch_assoc($view_query)) {
             <td>$email</td>
             <td>$contact</td>
             <td>
-                <a class='btn' href='Edit.php?id=$user_id'>Update</a>
+                <a class='btn update' href='Edit.php?id=$user_id'>Update</a>
                 <a class='btn delete' href='ConfirmDelete.php?id=$user_id'>Delete</a>
             </td>
           </tr>";
@@ -199,90 +199,164 @@ echo "</table>";
 // }
 ?>
 
+<?php
+// Initialize variables and error messages
+$first_name = $middle_name = $last_name = $gender = $preffix = $seven_digit = $email = "";
+$first_nameErr = $middle_nameErr = $last_nameErr = $genderErr = $preffixErr = $seven_digitErr = $emailErr = "";
 
-<?php 
-if(isset($_POST["btn_1"])) {
-    echo "Arriba";
-} elseif (isset($_POST["btn_2"])) {
-    echo "BSIT";
+// Check if form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Validate first name
+    if (empty($_POST["first_name"])) {
+        $first_nameErr = "Required";
+    } else {
+        $first_name = $_POST["first_name"];
+    }
+
+    // Validate middle name
+    if (empty($_POST["middle_name"])) {
+        $middle_nameErr = "Required";
+    } else {
+        $middle_name = $_POST["middle_name"];
+    }
+
+    // Validate last name
+    if (empty($_POST["last_name"])) {
+        $last_nameErr = "Required";
+    } else {
+        $last_name = $_POST["last_name"];
+    }
+
+    // Validate gender
+    if (empty($_POST["gender"])) {
+        $genderErr = "Required";
+    } else {
+        $gender = $_POST["gender"];
+    }
+
+    // Validate preffix
+    if (empty($_POST["preffix"])) {
+        $preffixErr = "Required";
+    } else {
+        $preffix = $_POST["preffix"];
+    }
+
+    // Validate seven-digit phone number
+    if (empty($_POST["seven_digit"])) {
+        $seven_digitErr = "Required";
+    } elseif (!preg_match('/^[0-9]{7}$/', $_POST["seven_digit"])) {
+        $seven_digitErr = "Must be 7 digits";
+    } else {
+        $seven_digit = $_POST["seven_digit"];
+    }
+
+    // Validate email
+    if (empty($_POST["email"])) {
+        $emailErr = "Required";
+    } elseif (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+        $emailErr = "Invalid email format";
+    } else {
+        $email = $_POST["email"];
+    }
+
+    if($first_name && $middle_name && $last_name && $gender && $preffix && $seven_digit && $email) {
+           if (!preg_match("/^[a-zA-Z  ]*$/", $first_name)) {
+                $first_nameErr = "Only letters and spaces are allowed";
+           }else{
+                $count_first_name_string = strlen($first_name);
+           if($count_first_name_string <2 ){
+                $first_nameErr = "First name must be at least 2 characters long";
+           }else{
+                $count_middle_name_string = strlen($middle_name);
+
+           if($count_middle_name_string <2 ){
+                $middle_nameErr = "Middle name must be at least 2 characters long";
+           }else{
+                $count_last_name_string = strlen($last_name);
+           if($count_last_name_string < 2) {
+                $last_nameErr = "Last name must be at least 2 characters long";
+           }else{
+            
+           if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $emailErr = "Invalid email format";
+                }
+            }
+           }
+    }
+}
+
+}
 }
 ?>
 
-<form method="POST">
-    <input type="submit" name="btn_1" value="1st Button" class="styled-button">
-    <input type="submit" name="btn_2" value="2nd Button" class="styled-button">
-</form>
-
-
-<?php  
-
-
-
-?>
-
+<style>
+    .error {
+        color: red;
+    }
+</style>
 
 <form method="POST">
-
     <center>
-
-        <table border="0" width="50%">
-
-            <tr><td> <input type="text" name="first_name"  placeholder="First Name" value="">   </td></tr>
-
-            <tr><td> <input type="text" name="middle_name" placeholder="Middle Name" value="">   </td></tr>
-
-            <tr><td> <input type="text" name="last_name"   placeholder="Last Name" value="">   </td></tr>
-
+        <table border="2" width="50%">
             <tr>
                 <td>
-                    <select>
-
-                        <option name="gender" value="">Select Gender </option>
-
-                        <option name="gender" value="Male">Male </option>
-                        <option name="gender" value="Female">Female </option>
-
-                    </select>
+                    <input type="text" name="first_name" placeholder="First Name" value="<?php echo htmlspecialchars($first_name); ?>">
+                    <span class="error"><?php echo $first_nameErr; ?></span>
                 </td>
             </tr>
-
-
+            <tr>
+                <td>
+                    <input type="text" name="middle_name" placeholder="Middle Name" value="<?php echo htmlspecialchars($middle_name); ?>">
+                    <span class="error"><?php echo $middle_nameErr; ?></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="last_name" placeholder="Last Name" value="<?php echo htmlspecialchars($last_name); ?>">
+                    <span class="error"><?php echo $last_nameErr; ?></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="gender">
+                        <option value="">Select Gender</option>
+                        <option value="Male" <?php if ($gender == "Male") echo "selected"; ?>>Male</option>
+                        <option value="Female" <?php if ($gender == "Female") echo "selected"; ?>>Female</option>
+                    </select>
+                    <span class="error"><?php echo $genderErr; ?></span>
+                </td>
+            </tr>
             <tr>
                 <td>
                     <select name="preffix">
-
-                        <option name="preffix" value="">Network Provided (Globe, Smart, Sun, TNT, TM etc.)</option>
-
-                        <option name="preffix" id="preffix" value="0813"> 0813 </option>
-                        <option name="preffix" id="preffix" value="0817"> 0817 </option>
-                        <option name="preffix" id="preffix" value="0905"> 0905 </option>
-                        <option name="preffix" id="preffix" value="0906"> 0906 </option>
-                        <option name="preffix" id="preffix" value="0907"> 0907 </option>
-
+                        <option value="">Network Provided (Globe, Smart, etc.)</option>
+                        <option value="0813" <?php if ($preffix == "0813") echo "selected"; ?>>0813</option>
+                        <option value="0817" <?php if ($preffix == "0817") echo "selected"; ?>>0817</option>
+                        <option value="0905" <?php if ($preffix == "0905") echo "selected"; ?>>0905</option>
+                        <option value="0906" <?php if ($preffix == "0906") echo "selected"; ?>>0906</option>
+                        <option value="0907" <?php if ($preffix == "0907") echo "selected"; ?>>0907</option>
                     </select>
-
-                        <input type="text" name="seven_digit" value="" maxlength="7" placeholder="Other Seven Digit">
+                    <input type="text" name="seven_digit" maxlength="7" placeholder="Other Seven Digit" value="<?php echo htmlspecialchars($seven_digit); ?>">
+                    <span class="error"><?php echo $preffixErr . ' ' . $seven_digitErr; ?></span>
                 </td>
             </tr>
-        
+            <tr>
+                <td>
+                    <input type="text" name="email" placeholder="Email" value="<?php echo htmlspecialchars($email); ?>">
+                    <span class="error"><?php echo $emailErr; ?></span>
+                </td>
+            </tr>
             <tr>
                 <td>
                     <hr>
                 </td>
-            </tr> 
-            
+            </tr>
             <tr>
                 <td>
                     <input type="submit" name="btnRegister" value="Register">
                 </td>
-            </tr> 
-
+            </tr>
         </table>
-
-
-
     </center>
-
-
 </form>
 
