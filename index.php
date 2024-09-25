@@ -142,7 +142,7 @@ Confirm Password:  <input type="password" name="cpassword" placeholder="Confirm 
 
 <?php
 
-$view_query = mysqli_query($connections, "SELECT * FROM mytbl");
+// $view_query = mysqli_query($connections, "SELECT * FROM mytbl");
 
 echo "<table border='2' width='50%'>";
 echo "<tr>
@@ -156,30 +156,30 @@ echo "<tr>
         <th>Option</th>
     </tr>";
 
-while ($row = mysqli_fetch_assoc($view_query)) {
-    $user_id = $row["id"];
-    $fName = $row["fName"];
-    $mName = $row["mName"];
-    $lName = $row["lName"];
-    $section = $row["section"];
-    $address = $row["address"];
-    $email = $row["email"];
-    $contact = $row["contact"];
+// while ($row = mysqli_fetch_assoc($view_query)) {
+//     $user_id = $row["id"];
+//     $fName = $row["fName"];
+//     $mName = $row["mName"];
+//     $lName = $row["lName"];
+//     $section = $row["section"];
+//     $address = $row["address"];
+//     $email = $row["email"];
+//     $contact = $row["contact"];
 
-    echo "<tr>
-            <td>$fName</td>
-            <td>$mName</td>
-            <td>$lName</td>
-            <td>$section</td>
-            <td>$address</td>
-            <td>$email</td>
-            <td>$contact</td>
-            <td>
-                <a class='btn update' href='Edit.php?id=$user_id'>Update</a>
-                <a class='btn delete' href='ConfirmDelete.php?id=$user_id'>Delete</a>
-            </td>
-          </tr>";
-}
+//     echo "<tr>
+//             <td>$fName</td>
+//             <td>$mName</td>
+//             <td>$lName</td>
+//             <td>$section</td>
+//             <td>$address</td>
+//             <td>$email</td>
+//             <td>$contact</td>
+//             <td>
+//                 <a class='btn update' href='Edit.php?id=$user_id'>Update</a>
+//                 <a class='btn delete' href='ConfirmDelete.php?id=$user_id'>Delete</a>
+//             </td>
+//           </tr>";
+// }
 echo "</table>";
 ?>
 
@@ -279,6 +279,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                     $emailErr = "Invalid email format";
+                }else{
+                    $count_seven_digit_string = strlen($seven_digit);
+                    
+                    if($count_seven_digit_string < 7){
+                        $seven_digitErr = "Seven digit must be at least 7 characters long";
+                    }else{
+
+                        function random_password ( $length = 5) {
+                            $str ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890";
+                            $shuffled = substr (str_shuffle($str), 0, $length);
+                            return $shuffled;
+
+                        }
+
+                        $password = random_password(8);
+
+                      include("connections.php");
+
+                      mysqli_query($connections, "INSERT INTO tbl_user(first_name,middle_name,last_name,gender,preffix,seven_digit,email,password) VALUES('$first_name' , '$middle_name' , '$last_name' , '$gender' , '$preffix' , '$seven_digit' , '$email' , '$password') ");
+
+                       echo "<script>window.location.href='success.php';</script>";
+
+
+                    }
                 }
             }
            }
@@ -293,7 +317,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     .error {
         color: red;
     }
+
 </style>
+
+<script type="application/javascript">
+
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : event.keyCode
+
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+
+        return false;
+
+    return true;
+}
+
+</script>
 
 <form method="POST">
     <center>
@@ -336,7 +375,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <option value="0906" <?php if ($preffix == "0906") echo "selected"; ?>>0906</option>
                         <option value="0907" <?php if ($preffix == "0907") echo "selected"; ?>>0907</option>
                     </select>
-                    <input type="text" name="seven_digit" maxlength="7" placeholder="Other Seven Digit" value="<?php echo htmlspecialchars($seven_digit); ?>">
+                    <input type="text" name="seven_digit" maxlength="7" placeholder="Other Seven Digit"  onkeypress='return isNumberKey(event)' value="<?php echo htmlspecialchars($seven_digit); ?>">
                     <span class="error"><?php echo $preffixErr . ' ' . $seven_digitErr; ?></span>
                 </td>
             </tr>
@@ -355,6 +394,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <td>
                     <input type="submit" name="btnRegister" value="Register">
                 </td>
+                
             </tr>
         </table>
     </center>
