@@ -5,4 +5,8 @@
 
 ?>
 
-<h3>New Record has been successfully inserted! </h3>
+<center>
+
+
+
+</center>
