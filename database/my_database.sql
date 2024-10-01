@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2024 at 03:45 PM
+-- Generation Time: Oct 01, 2024 at 03:16 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -46,7 +46,8 @@ CREATE TABLE `tbl_user` (
 INSERT INTO `tbl_user` (`id_user`, `first_name`, `middle_name`, `last_name`, `gender`, `preffix`, `seven_digit`, `email`, `password`) VALUES
 (1, 'Willard', 'Rivas', 'Malicse', 'Male', '0813', '1234567', 'reywillardd01@gmail.com', 'uFANzajw'),
 (2, 'Willard', 'Rivas', 'Malicse', 'Male', '0813', '1234567', 'reywillardd01@gmail.com', 'Qa08b4Np'),
-(3, 'John', 'Mcclaire', 'Adams', 'Male', '0817', '0987464', 'John@gmail.com', 'q1xzDpIy');
+(3, 'John', 'Mcclaire', 'Adams', 'Male', '0817', '0987464', 'John@gmail.com', 'q1xzDpIy'),
+(4, 'Jayson', 'Garcia', 'Munti', 'Male', '0906', '0887389', 'jayson@gmail.com', 'CdLz9t40');
 
 --
 -- Indexes for dumped tables
@@ -66,7 +67,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
