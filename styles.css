@@ -62,6 +62,7 @@ table {
     margin: 20px auto;
     font-size: 14px;
     text-align: left;
+    margin-bottom: 20px;
 }
 
 th, td {
@@ -164,4 +165,19 @@ tr:hover {
 
 .btn.delete:hover {
     background-color: #ff1a1a;
+}
+
+.btn.back-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn.back-btn:hover {
+    background-color: #004643;
 }
