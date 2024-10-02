@@ -299,7 +299,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                       mysqli_query($connections, "INSERT INTO tbl_user(first_name,middle_name,last_name,gender,preffix,seven_digit,email,password) VALUES('$first_name' , '$middle_name' , '$last_name' , '$gender' , '$preffix' , '$seven_digit' , '$email' , '$password') ");
 
-                       echo "<script>window.location.href='success.php';</script>";
+                       echo "<script>window.location.href='success';</script>";
 
 
                     }
