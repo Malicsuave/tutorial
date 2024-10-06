@@ -14,7 +14,15 @@ include("nav.php");
     }, 1000);
 </script>
 
-<!-- Add design for the retriever div -->
+<?php 
+
+if(empty($_GET["getUpdate"])) {
+
+
+
+
+
+?>
 
 <center>
     
@@ -23,3 +31,15 @@ include("nav.php");
     <?php include("retriever.php"); ?>
 </div>
 </center>
+
+<?php 
+}else{
+        include("updating_user.php");
+}
+
+if(empty($_GET["notify"])){
+    //do nothing her
+}else{
+    echo "<font color=green><h3><center>" .$_GET["notify"] . "</center></h3></font>";
+}
+?>

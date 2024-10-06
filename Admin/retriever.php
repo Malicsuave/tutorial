@@ -110,6 +110,12 @@ tr:hover td {
                 $full_name= ucfirst($db_first_name) ." ". ucfirst($db_middle_name[0]).". ".ucfirst($db_last_name);
                 $contact = $db_preffix.$db_seven_digit;
 
+                $jScript = md5(rand(1,9));
+
+                $newScript = md5(rand(1,9));
+
+                $getUpdate = md5(rand(1,9));
+
 
                 echo "<tr>
                         <td>{$id_user}</td>
@@ -123,7 +129,7 @@ tr:hover td {
 
                         <center>
                         
-                                <a href='' class='btn-update'> Update </a>
+                                <a href=' ?jScript=$jScript && newScript=$newScript && getUpdate=$getUpdate &&id_user=$id_user' class='btn update'> Update </a>
                         
                         </center>
                 
