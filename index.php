@@ -186,62 +186,57 @@ echo "</table>";
 <hr>
 
 <?php
-
-// $Paul= "Paul";
-// $Mica= "Mica";
-// $Kaye= "Kaye";
-
-// $names = array("$Kaye","$Paul","$Mica");
-
-//     foreach ($names as $display_names) {
-        
-//         echo $display_names . "<br>";
-// }
+    if(isset($_POST["btn_1"])){
+        echo "Arriba";
+    }
+    if(isset($_POST["btn_2"])){
+        echo "SCST";
+    }
+    
 ?>
 
+<form method="POST">
+    <input type="submit" name="btn_1" value="1st Button">
+    <input type="submit" name="btn_2" value="2nd Button">
+</form>
+
 <?php
-// Initialize variables and error messages
+
 $first_name = $middle_name = $last_name = $gender = $preffix = $seven_digit = $email = "";
 $first_nameErr = $middle_nameErr = $last_nameErr = $genderErr = $preffixErr = $seven_digitErr = $emailErr = "";
 
-// Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Validate first name
+    
     if (empty($_POST["first_name"])) {
         $first_nameErr = "Required";
     } else {
         $first_name = $_POST["first_name"];
     }
 
-    // Validate middle name
     if (empty($_POST["middle_name"])) {
         $middle_nameErr = "Required";
     } else {
         $middle_name = $_POST["middle_name"];
     }
 
-    // Validate last name
     if (empty($_POST["last_name"])) {
         $last_nameErr = "Required";
     } else {
         $last_name = $_POST["last_name"];
     }
 
-    // Validate gender
     if (empty($_POST["gender"])) {
         $genderErr = "Required";
     } else {
         $gender = $_POST["gender"];
     }
 
-    // Validate preffix
     if (empty($_POST["preffix"])) {
         $preffixErr = "Required";
     } else {
         $preffix = $_POST["preffix"];
     }
 
-    // Validate seven-digit phone number
     if (empty($_POST["seven_digit"])) {
         $seven_digitErr = "Required";
     } elseif (!preg_match('/^[0-9]{7}$/', $_POST["seven_digit"])) {
@@ -250,7 +245,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $seven_digit = $_POST["seven_digit"];
     }
 
-    // Validate email
     if (empty($_POST["email"])) {
         $emailErr = "Required";
     } elseif (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
@@ -290,9 +284,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $str ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890";
                             $shuffled = substr (str_shuffle($str), 0, $length);
                             return $shuffled;
-
                         }
-
                         $password = random_password(8);
 
                       include("connections.php");
@@ -300,8 +292,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                       mysqli_query($connections, "INSERT INTO tbl_user(first_name,middle_name,last_name,gender,preffix,seven_digit,email,password) VALUES('$first_name' , '$middle_name' , '$last_name' , '$gender' , '$preffix' , '$seven_digit' , '$email' , '$password') ");
 
                        echo "<script>window.location.href='success';</script>";
-
-
                     }
                 }
             }
@@ -326,9 +316,7 @@ function isNumberKey(evt){
     var charCode = (evt.which) ? evt.which : event.keyCode
 
     if (charCode > 31 && (charCode < 48 || charCode > 57))
-
         return false;
-
     return true;
 }
 

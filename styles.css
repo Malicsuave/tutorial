@@ -159,13 +159,6 @@ tr:hover {
 }
 
 /* Delete Button Style */
-.btn.delete {
-    background-color: #ff4d4d; /* Red for delete */
-}
-
-.btn.delete:hover {
-    background-color: #ff1a1a;
-}
 
 .btn.back-btn {
     display: inline-block;

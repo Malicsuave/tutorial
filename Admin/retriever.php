@@ -1,84 +1,9 @@
 <?php 
-
 include("../connections.php");
-
-// Retrieve data from the database
 $retrieve_query = mysqli_query($connections, "SELECT * FROM tbl_user"); 
-
 ?>
+<link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet" href="../styles.css">
-<style>
-        /* General styles */
-body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #e9ecef;
-    margin: 0;
-    padding: 20px;
-}
-
-/* Container for the user data table */
-.result-container {
-    text-align: center;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    padding: 20px;
-    width: auto;
-    margin: 50px auto;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-}
-
-h3 {
-    color: #4CAF50;
-    margin-bottom: 20px;
-}
-
-/* Table styling */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-th, td {
-    padding: 10px;
-    border: 1px solid #333;
-    text-align: left;   
-}
-
-th {
-    background-color: #4CAF50;
-    color: white;
-}
-
-td {
-    background-color: #f9f9f9;
-    color: #333;
-}
-
-/* Hover effect for table rows */
-tr:hover td {
-    background-color: #004643;
-    color: white;
-}
-
-/* Back button */
-.btn.back-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
-}
-
-.btn.back-btn:hover {
-    background-color: #004643;
-}
-
-</style>
 <div class="result-container">
     <h3>User Information</h3>
     <table>
@@ -91,7 +16,7 @@ tr:hover td {
                 <th>Email</th>
                 <th>Password</th>
                 <th><center>Action</th>
-            </tr>
+            </tr>  
         </thead>
         <tbody>
             <?php
@@ -109,14 +34,10 @@ tr:hover td {
 
                 $full_name= ucfirst($db_first_name) ." ". ucfirst($db_middle_name[0]).". ".ucfirst($db_last_name);
                 $contact = $db_preffix.$db_seven_digit;
-
                 $jScript = md5(rand(1,9));
-
                 $newScript = md5(rand(1,9));
-
                 $getUpdate = md5(rand(1,9));
-
-
+                $getDelete = md5 (rand(1,9));
                 echo "<tr>
                         <td>{$id_user}</td>
                         <td>{$full_name}</td>
@@ -124,24 +45,17 @@ tr:hover td {
                         <td>{$contact}</td>
                         <td>{$db_email}</td>
                         <td>{$db_password}</td>
-
                         <td>
-
-                        <center>
-                        
+                        <center>    
                                 <a href=' ?jScript=$jScript && newScript=$newScript && getUpdate=$getUpdate &&id_user=$id_user' class='btn update'> Update </a>
-                        
-                        </center>
-                
+                                &nbsp;                             
+                                <a href=' ?jScript=$jScript && newScript=$newScript && getDelete=$getDelete &&id_user=$id_user' class='btn delete'> Delete </a>        
+                        </center>           
                         </td>
-
                       </tr>";
             }
             ?>
         </tbody>
     </table>
-
-    <!-- Back button -->
-    <a href="index.php" class="btn back-btn">Back to Home</a>
-    
+    <a href="index.php" class="btn back-btn">Back to Home</a>   
 </div>

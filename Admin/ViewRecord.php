@@ -4,10 +4,8 @@ include("../connections.php");
 include("nav.php");
 ?>
 
-<!-- Include jQuery -->
 <script type="text/javascript" src="js/jQuery.js"></script>
 
-<!-- Script to refresh the retriever.php content every 1 second -->
 <script type="application/javascript">
     setInterval(function(){
         $('#retriever').load('retriever.php');
@@ -16,17 +14,19 @@ include("nav.php");
 
 <?php 
 
-if(empty($_GET["getUpdate"])) {
+if(empty($_GET["getDelete"])) {
 
-
-
-
-
+}else{
+    include("confirm_delete.php");
+}
 ?>
 
+<?php 
+if(empty($_GET["getUpdate"])) {
+
+?>
 <center>
     
-<!-- Retrieve data display area -->
 <div id="retriever">
     <?php include("retriever.php"); ?>
 </div>
@@ -36,7 +36,6 @@ if(empty($_GET["getUpdate"])) {
 }else{
         include("updating_user.php");
 }
-
 if(empty($_GET["notify"])){
     //do nothing her
 }else{
