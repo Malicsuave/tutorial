@@ -1,6 +1,6 @@
 <?php 
 include("../connections.php");
-$retrieve_query = mysqli_query($connections, "SELECT * FROM tbl_user"); 
+$retrieve_query = mysqli_query($connections, "SELECT * FROM tbl_user WHERE account_type='2'"); 
 ?>
 <link rel="stylesheet" href="style.css">
 
@@ -57,5 +57,5 @@ $retrieve_query = mysqli_query($connections, "SELECT * FROM tbl_user");
             ?>
         </tbody>
     </table>
-    <a href="index.php" class="btn back-btn">Back to Home</a>   
+    <a href="../index.php" class="btn back-btn">Back to Home</a>
 </div>

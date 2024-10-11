@@ -1,30 +1,29 @@
 <?php
 session_start();
-
-// Unset and destroy the session
-unset($_SESSION["id"]);
+if (isset($_SESSION['email'])) {
+    unset($_SESSION['email']);
+}
 session_unset();
 session_destroy();
-?>
-<!DOCTYPE html>
-<html lang="en">
+$logout = md5(rand()); 
+$email_md5 = md5(rand()); 
+$redirect_url = "../login?logout=$logout&v_1=$email_md5";
+echo "<!DOCTYPE html>
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Logging Out</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel='stylesheet' href='../style.css'>
 </head>
 <body>
-    <div class="logout-container">
-        <div class="logout-message">
+    <div class='logout-container'>
+        <div class='logout-message'>
             Logging out ... Please wait ...
         </div>
     </div>
-
-    <?php
-    // Redirect to index.php after 3 seconds
-    header('Refresh: 3;url=../index.php');
-    exit();
-    ?>
 </body>
-</html>
+</html>";
+header("Refresh: 3; url=$redirect_url");
+exit();
+?>

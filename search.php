@@ -17,7 +17,7 @@ if ($search) {
 
 <link rel="stylesheet" href="style.css">
 
-
+<center>
 <div class="search-container">
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
 
@@ -27,5 +27,6 @@ if ($search) {
         <input type="submit" value="Search">
     </form>
 
-    <a href="index.php" class="back-btn">Back</a>
+    <a href="./Admin/index" class="back-btn">Back</a>
 </div>
+</center>

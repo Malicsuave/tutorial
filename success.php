@@ -27,5 +27,5 @@
         }
     </style>
 
-    <a href="index" class="btn">Go to Home</a>
+    <a href="./Admin/index.php" class="btn">Go to Home</a>
 </center>

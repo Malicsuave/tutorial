@@ -10,17 +10,17 @@
 
     <div class="navbar">
         <ul>
-            <li><a href="index.php" class="nav-link">Home</a></li>
-            <li><a href="search.php" class="nav-link">Search</a></li>
-            <li><a href="login.php" class="nav-link">Login</a></li>
+            <li><a href="index" class="nav-link">Home</a></li>
+            <li><a href="search" class="nav-link">Search</a></li>
+            <li><a href="./Admin/ViewRecord" class="nav-link">View Records</a></li>
+            <li><a href="./Admin/SendSMS" class="nav-link">SMS</a></li>
+            <li><a href="login" class="nav-link">Login</a></li>
+            <li><a href="./Admin/register" class="nav-link">Register</a></li>
         </ul>
     </div>
 
     <!-- Add your page content below -->
-    <div class="content">
-        <h1>Welcome to the page!</h1>
-       
-    </div>
+    
 
 </body>
 </html>
