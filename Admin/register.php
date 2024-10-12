@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         }
                         $password = random_password(8);
 
-                      include("connections.php");
+                      include("../connections.php");
 
                       mysqli_query($connections, "INSERT INTO tbl_user(first_name,middle_name,last_name,gender,preffix,seven_digit,email,password, account_type) VALUES('$first_name' , '$middle_name' , '$last_name' , '$gender' , '$preffix' , '$seven_digit' , '$email' , '$password' , '2') ");
 

@@ -202,6 +202,13 @@ echo "</table>";
 
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/vendor/autoload.php';
+
+include("connections.php");
+
 $first_name = $middle_name = $last_name = $gender = $preffix = $seven_digit = $email = "";
 $first_nameErr = $middle_nameErr = $last_nameErr = $genderErr = $preffixErr = $seven_digitErr = $emailErr = "";
 
@@ -287,11 +294,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         }
                         $password = random_password(8);
 
-                      include("connections.php");
+                        
 
-                      mysqli_query($connections, "INSERT INTO tbl_user(first_name,middle_name,last_name,gender,preffix,seven_digit,email,password, account_type) VALUES('$first_name' , '$middle_name' , '$last_name' , '$gender' , '$preffix' , '$seven_digit' , '$email' , '$password' , '2') ");
+                        $mail = new PHPMailer;
+                       
+                        $mail->IsSMTP();
+                        $mail->Host =  'smtp.gmail.com';
+                        $mail->SMTPAuth = true;
+                        $mail->Username = 'reywillardd01@gmail.com';
+                        $mail->Password = 'rvuf yyem neki ctql';
+                        $mail->SMTPSecure = 'tls';
+                        $mail->Port = 587;
+                        $mail->From = 'reywllardd01@gmail.com';
+                        $mail->FromName = 'Bitch Magnet';
+                        $mail->addAddress($email);
+                        $mail->isHTML(true);
+                        $message="Your password is:<font color='red'><b>$password</b></font>";
+                        $mail->Subject = 'Default Password';
+                        $mail->Body = $message;
 
-                       echo "<script>window.location.href='success';</script>";
+                        if(!$mail->send()){
+                            echo 'Message could not be sent.';
+                            echo 'Mailer Error: ' . $mail->ErrorInfo;
+                        }else{
+                            mysqli_query($connections, "INSERT INTO tbl_user(first_name,middle_name,last_name,gender,preffix,seven_digit,email,password, account_type) VALUES('$first_name' , '$middle_name' , '$last_name' , '$gender' , '$preffix' , '$seven_digit' , '$email' , '$password' , '2') ");
+
+                            echo "<script>window.location.href='success';</script>";
+                        }
+
+
+                        include("connections.php");
+                     
+
+                     
                     }
                 }
             }
